@@ -14,13 +14,21 @@ public class Enemy {
     private int attack;
     private boolean dead;
 
+    /**
+     * フィールドnameを取得するためのgetterメソッド
+     * @return　自分自身のnameフィールド
+     */
     public String getName(){
         return this.name;
     }
-
+    /**
+     * フィールドdeadを取得するためのgetterメソッド
+     * @return 自分自身のdeadフィールド
+     */
     public boolean getDead(){
         return this.dead;
     }
+    
 
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。

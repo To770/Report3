@@ -14,14 +14,25 @@ public class Hero {
     private int attack;
     private boolean dead;
 
+    /**
+     * フィールドnameを取得するためのgetterメソッド
+     * @return 自分自身のnameフィールド
+     */
     public String getName(){
         return this.name;
     }
-
+    /**
+     * フィールドdeadを取得するためのgetterメソッド
+     * @return 自分自身のdeadフィールド
+     */
     public boolean getDead(){
         return this.dead;
     }
 
+    /**
+     * フィールドhitPointを取得するためのgetterメソッド
+     * @return 自分自身のhitPointフィールド
+     */
     public int getHitPoint(){
         return this.hitPoint;
     }
