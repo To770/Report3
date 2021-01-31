@@ -10,10 +10,10 @@ package jp.ac.uryukyu.ie.e205737;
  *  boolean dead; //生物の生死状態。true=死亡。
  */
 public class LivingThing {
-    String name;
-    int hitPoint;
-    int attack;
-    boolean dead;
+    protected String name;
+    protected int hitPoint;
+    protected int attack;
+    protected boolean dead;
 
 
     /**
