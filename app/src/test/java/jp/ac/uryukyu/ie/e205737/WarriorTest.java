@@ -14,12 +14,12 @@ class WarriorTest {
     void attackWithWeponSkillTest() {
         int defaultWarriorAttack = 100;
         int previousEnemyHitPoint;
-        Warrior demoWarrior = new Warrior("デモ戦士", 400, defaultWarriorAttack);
+        Warrior demoWarrior = new Warrior("デモ戦士", 100, defaultWarriorAttack);
         Enemy slime = new Enemy("スライムもどき", 450, 100);
         for(int i = 0; i < 3; i++){
             previousEnemyHitPoint = slime.hitPoint;
             demoWarrior.attackWithWeponSkill(slime);
-            slime.attack(demoWarrior);
+            //slime.attack(demoWarrior);
             assertEquals(previousEnemyHitPoint - slime.hitPoint, (int)(defaultWarriorAttack * 1.5));
         }
     }    
