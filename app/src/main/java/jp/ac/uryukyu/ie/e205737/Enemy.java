@@ -8,66 +8,32 @@ package jp.ac.uryukyu.ie.e205737;
  *  boolean dead; //敵の生死状態。true=死亡。
  * Created by tnal on 2016/11/13.
  */
-public class Enemy {
-    private String name;
-    private int hitPoint;
-    private int attack;
-    private boolean dead;
-
-    /**
-     * フィールドnameを取得するためのgetterメソッド
-     * @return　自分自身のnameフィールド
-     */
-    public String getName(){
-        return this.name;
-    }
-    /**
-     * フィールドdeadを取得するためのgetterメソッド
-     * @return 自分自身のdeadフィールド
-     */
-    public boolean getDead(){
-        return this.dead;
-    }
-    
+public class Enemy extends LivingThing{
 
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
-     * @param name モンスター名
+     * 
+     * @param name      モンスター名
      * @param maximumHP モンスターのHP
-     * @param attack モンスターの攻撃力
+     * @param attack    モンスターの攻撃力
      */
     public Enemy (String name, int maximumHP, int attack) {
-        this.name = name;
-        hitPoint = maximumHP;
-        this.attack = attack;
-        dead = false;
-        System.out.printf("%sのHPは%d。攻撃力は%dです。\n", getName(), maximumHP, attack);
+        super(name, maximumHP, attack);
+        
     }
-
-    /**
-     * Heroへ攻撃するメソッド。
-     * attackに応じて乱数でダメージを算出し、hero.wounded()によりダメージ処理を実行。
-     * @param hero 攻撃対象
-     */
-    public void attack(Hero hero){
-        int damage = (int)(Math.random() * attack);
-        if(this.dead == false){
-            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), hero.getName(), damage);
-            hero.wounded(damage);
-        }
-    }
-
     /**
      * 自身へ攻撃されたときのダメージ処理をするメソッド。
      * 指定されたダメージを hitPoint から引き、死亡判定を行う。
      * @param damage 受けたダメージ
      */
+    @Override
     public void wounded(int damage){
-        hitPoint -= damage;
-        if( hitPoint < 0 ) {
-            dead = true;
+        this.hitPoint -= damage;
+        if( this.hitPoint < 0 ) {
+            this.dead = true;
             System.out.printf("モンスター%sは倒れた。\n", name);
         }
     }
+
 
 }
